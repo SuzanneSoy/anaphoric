@@ -6,5 +6,5 @@
 (define scribblings '(("scribblings/anaphoric.scrbl" ())))
 (define compile-omit-paths '("test/"))
 (define pkg-desc "Anaphoric versions of `if`, `when` and `cond`. They bind the value of the condition expression to `it`.")
-(define version "0.0")
+(define version "0.1")
 (define pkg-authors '(|Georges Dupéron|))

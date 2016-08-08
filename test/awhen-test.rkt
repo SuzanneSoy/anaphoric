@@ -12,8 +12,8 @@
               (void))
 
 (check-equal? (awhen (member 'a lst)
-                'seen)
-              'seen)
+                it)
+              '(a b c))
 
 
 (check-equal? (awhen (member 'a lst)

@@ -1,6 +1,7 @@
 [![Build Status,](https://img.shields.io/travis/jsmaniac/anaphoric/master.svg)](https://travis-ci.org/jsmaniac/anaphoric)
 [![Coverage Status,](https://img.shields.io/coveralls/jsmaniac/anaphoric/master.svg)](https://coveralls.io/github/jsmaniac/anaphoric)
 [![Build Stats,](https://img.shields.io/badge/build-stats-blue.svg)](http://jsmaniac.github.io/travis-stats/#jsmaniac/anaphoric)
+[![Online Documentation.](https://img.shields.io/badge/docs-online-blue.svg)](http://docs.racket-lang.org/anaphoric/)
 
 anaphoric
 =========

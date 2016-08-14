@@ -3,7 +3,7 @@
                     racket/base]]
 
 @title{Anaphoric conditionals}
-@author+email["georges.duperon@gmail.com"]{Georges Dupéron}
+@author[@author+email["Georges Dupéron" "georges.duperon@gmail.com"]]
 
 @defmodule[anaphoric]
 
@@ -28,9 +28,10 @@ condition expression.
 
 In the @racket[else] clause of @racket[acond] and in the
 else branch of @racket[aif], the @racket[it] syntax
-parameter keeps its value. This meeans it keeps the value
-bound by the surrounding conditionnal, if any. Otherwise it acts just
-like when it is used at the top-level, and raises a syntax error.
+parameter keeps its value. This means it keeps the value
+bound by the surrounding conditional, if any. Otherwise it
+acts exactly as when it is used at the top-level, and raises
+a syntax error.
 
 @racketblock[(aif 'first
                (aif (eq? 'second 'no)
@@ -40,8 +41,8 @@ like when it is used at the top-level, and raises a syntax error.
 
 In the example above, @racket[(displayln it)] prints 
 @racket['first]. In the example below, 
-@racket[(displayln it)] will raises a syntax error, as it
-appears in a sequence of else branches:
+@racket[(displayln it)] raises a syntax error, as it appears
+in a sequence of else branches:
 
 @racketblock[(aif (eq? 'first 'no)
                'not-executed
@@ -117,7 +118,7 @@ using @racket[it].
 
  The last two variants are shorthands for using the same 
  @racket[identifier] in all cases (except the @racket[else]
- case)
+ case).
 
  Each @racket[conditionᵢ] is evaluated at most once
  (evaluation stops at the first successful 

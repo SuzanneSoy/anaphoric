@@ -6,12 +6,12 @@
 anaphoric
 =========
 
-Anaphoric conditionnal forms for `racket`:
+Anaphoric conditional forms for `racket`:
 
 ```
 (aif (member 'a lst)
   (displayln it)
-  (displayln "not found"))
+  (displayln "not found")) ;; Can't use "it" in the else clause.
 
 (awhen (member 'a lst)
   (displayln it))
@@ -20,4 +20,20 @@ Anaphoric conditionnal forms for `racket`:
   [(member 'a lst) (displayln it)]
   [(member 'b lst) (displayln it)]
   [else (displayln "not found")]) ;; Can't use "it" in the else clause.
+```
+
+This package also provides hygienic versions:
+
+```
+(if-let [x (member 'a lst)]
+  (displayln x)
+  (displayln "not found")) ;; Can't use "x" in the else clause.
+
+(when-let [x (member 'a lst)]
+  (displayln it))
+
+(cond-let x
+  [(member 'a lst) (displayln x)]
+  [(member 'b lst) (displayln x)]
+  [else (displayln "not found")]) ;; Can't use "x" in the else clause.
 ```

@@ -37,3 +37,10 @@ This package also provides hygienic versions:
   [(member 'b lst) (displayln x)]
   [else (displayln "not found")]) ;; Can't use "x" in the else clause.
 ```
+
+Installation
+------------
+
+```
+raco pkg install --deps search-auto anaphoric
+```

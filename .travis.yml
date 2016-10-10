@@ -50,7 +50,7 @@ before_script:
 # `raco pkg install --deps search-auto anaphoric` to install any required
 # packages without it getting stuck on a confirmation prompt.
 script:
- - raco test -x -p anaphoric
+ - raco test -p anaphoric
 
 after_success:
  - raco setup --check-deps anaphoric

@@ -2,9 +2,6 @@ language: c
 
 # Based from: https://github.com/greghendershott/travis-racket
 
-# Optional: Remove to use Travis CI's older infrastructure.
-sudo: false
-
 env:
   global:
     # Supply a global RACKET_DIR environment variable. This is where
@@ -20,16 +17,16 @@ env:
     # Supply more than one RACKET_VERSION (as in the example below) to
     # create a Travis-CI build matrix to test against multiple Racket
     # versions.
-    - RACKET_VERSION=6.0   DEPS=false
-    - RACKET_VERSION=6.1   DEPS=false
-    - RACKET_VERSION=6.1.1 DEPS=true
-    - RACKET_VERSION=6.2   DEPS=true
-    - RACKET_VERSION=6.3   DEPS=true
-    - RACKET_VERSION=6.4   DEPS=true
-    - RACKET_VERSION=6.5   DEPS=true
-    - RACKET_VERSION=6.6   DEPS=true
-    - RACKET_VERSION=6.7   DEPS=true
-    - RACKET_VERSION=HEAD  DEPS=true
+    - RACKET_VERSION=6.0   RECENT=false
+    - RACKET_VERSION=6.1   RECENT=false
+    - RACKET_VERSION=6.1.1 RECENT=true
+    - RACKET_VERSION=6.2   RECENT=true
+    - RACKET_VERSION=6.3   RECENT=true
+    - RACKET_VERSION=6.4   RECENT=true
+    - RACKET_VERSION=6.5   RECENT=true
+    - RACKET_VERSION=6.6   RECENT=true
+    - RACKET_VERSION=6.7   RECENT=true
+    - RACKET_VERSION=HEAD  RECENT=true
 
 matrix:
   allow_failures:
@@ -52,10 +49,10 @@ before_script:
 # packages without it getting stuck on a confirmation prompt.
 script:
  - raco test -p anaphoric
- - if $DEPS; then raco setup --check-pkg-deps anaphoric; fi
+ - if $RECENT; then raco setup --check-pkg-deps anaphoric; fi
  - raco pkg install doc-coverage
  - raco doc-coverage anaphoric
- - raco pkg install --deps search-auto cover cover-codecov
- - raco cover -b -f codecov -d $TRAVIS_BUILD_DIR/coverage .
+ - if $RECENT; raco pkg install --deps search-auto cover cover-codecov; fi
+ - if $RECENT; raco cover -b -f codecov -d $TRAVIS_BUILD_DIR/coverage .; fi
 
 after_success:

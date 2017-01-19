@@ -51,8 +51,10 @@ before_script:
 # packages without it getting stuck on a confirmation prompt.
 script:
  - raco test -p anaphoric
+ - raco setup --check-deps anaphoric
+ - raco pkg install doc-coverage
+ - raco doc-coverage anaphoric
+ - raco pkg install --deps search-auto cover cover-codecov
+ - raco cover -b -f codecov -d $TRAVIS_BUILD_DIR/coverage .
 
 after_success:
- - raco setup --check-deps anaphoric
- - raco pkg install --deps search-auto cover cover-coveralls
- - raco cover -b -f coveralls -d $TRAVIS_BUILD_DIR/coverage .

@@ -8,30 +8,30 @@ env:
     - PATH="$RACKET_DIR/bin:$PATH"
   matrix:
     # RACKET_VERSION is an argument to install-racket.sh
-    - RACKET_VERSION=6.0
-    - RACKET_VERSION=6.1
-    - RACKET_VERSION=6.1.1
-    - RACKET_VERSION=6.2
-    - RACKET_VERSION=6.3
-    - RACKET_VERSION=6.4
-    - RACKET_VERSION=6.5
-    - RACKET_VERSION=6.6
-    - RACKET_VERSION=6.7
-    - RACKET_VERSION=6.8
-    - RACKET_VERSION=RELEASE
-    - RACKET_VERSION=HEAD
+    - RACKET_VERSION=6.0     COV=false
+    - RACKET_VERSION=6.1     COV=false
+    - RACKET_VERSION=6.1.1   COV=false
+    - RACKET_VERSION=6.2     COV=false
+    - RACKET_VERSION=6.3     COV=false
+    - RACKET_VERSION=6.4     COV=true
+    - RACKET_VERSION=6.5     COV=true
+    - RACKET_VERSION=6.6     COV=true
+    - RACKET_VERSION=6.7     COV=true
+    - RACKET_VERSION=6.8     COV=true
+    - RACKET_VERSION=RELEASE COV=true
+    - RACKET_VERSION=HEAD    COV=true
 
 before_install:
 - curl -L https://raw.githubusercontent.com/greghendershott/travis-racket/master/install-racket.sh | bash
-- if test $RACKET_VERSION != 6.0 -a $RACKET_VERSION != 6.1; then raco pkg install --deps search-auto doc-coverage cover cover-codecov; fi # or cover-coveralls
+- if $COV; then raco pkg install --deps search-auto doc-coverage cover cover-codecov; fi # or cover-coveralls
 
 install:
 - raco pkg install --deps search-auto -j 2
 
 script:
 - raco test -x -p "$(basename "$TRAVIS_BUILD_DIR")"
-- if test $RACKET_VERSION != 6.0 -a $RACKET_VERSION != 6.1; then raco setup --check-pkg-deps --no-zo --no-launcher --no-install --no-post-install --no-docs --pkgs "$(basename "$TRAVIS_BUILD_DIR")"; fi
-- if test $RACKET_VERSION != 6.0 -a $RACKET_VERSION != 6.1; then raco doc-coverage "$(basename "$TRAVIS_BUILD_DIR")"; fi
-- if test $RACKET_VERSION != 6.0 -a $RACKET_VERSION != 6.1; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi
+- if $COV; then raco setup --check-pkg-deps --no-zo --no-launcher --no-install --no-post-install --no-docs --pkgs "$(basename "$TRAVIS_BUILD_DIR")"; fi
+- if $COV; then raco doc-coverage "$(basename "$TRAVIS_BUILD_DIR")"; fi
+- if $COV; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi
 # TODO: add an option to cover to run the "outer" module too, not just the submodules.
 # TODO: deploy the coverage info.

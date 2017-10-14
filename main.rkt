@@ -13,8 +13,15 @@
 (provide (all-from-out anaphoric/it
                        anaphoric/aif
                        anaphoric/awhen
-                       anaphoric/acond))
+                       anaphoric/acond
+                       anaphoric/if-let
+                       anaphoric/when-let
+                       anaphoric/cond-let))
+
 (require anaphoric/it
          anaphoric/aif
          anaphoric/awhen
-         anaphoric/acond)
+         anaphoric/acond
+         anaphoric/if-let
+         anaphoric/when-let
+         anaphoric/cond-let)

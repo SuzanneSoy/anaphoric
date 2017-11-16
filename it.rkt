@@ -7,5 +7,5 @@
   (λ (stx)
     (raise-syntax-error
      'it
-     "Use of the \"it\" identifier is only allowd within anaphoric macros."
+     "Use of the \"it\" identifier is only allowed within anaphoric macros."
      stx)))

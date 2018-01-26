@@ -123,3 +123,15 @@ using @racket[it].
  Each @racket[conditionᵢ] is evaluated at most once
  (evaluation stops at the first successful 
  @racket[conditionᵢ]).}
+
+@defform[(and-let [identifier condition] ... body)]{
+ Variant of @racket[and] which binds each @racket[identifier]
+ to the value of its @racket[condition], in scope within all
+ @racket[condition]s afterwards as well as in @racket[body].
+
+ Each @racket[condition] is evaluated at most once, and
+ evaluation stops at the first false condition. The
+ @racket[body] is only evaluated when all
+ @racket[conditions] are successful.
+}
+

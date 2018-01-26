@@ -16,7 +16,8 @@
                        anaphoric/acond
                        anaphoric/if-let
                        anaphoric/when-let
-                       anaphoric/cond-let))
+                       anaphoric/cond-let
+                       anaphoric/and-let))
 
 (require anaphoric/it
          anaphoric/aif
@@ -24,4 +25,5 @@
          anaphoric/acond
          anaphoric/if-let
          anaphoric/when-let
-         anaphoric/cond-let)
+         anaphoric/cond-let
+         anaphoric/and-let)

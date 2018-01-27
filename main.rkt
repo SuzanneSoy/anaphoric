@@ -14,6 +14,7 @@
                        anaphoric/aif
                        anaphoric/awhen
                        anaphoric/acond
+                       anaphoric/aand
                        anaphoric/if-let
                        anaphoric/when-let
                        anaphoric/cond-let
@@ -23,6 +24,7 @@
          anaphoric/aif
          anaphoric/awhen
          anaphoric/acond
+         anaphoric/aand
          anaphoric/if-let
          anaphoric/when-let
          anaphoric/cond-let

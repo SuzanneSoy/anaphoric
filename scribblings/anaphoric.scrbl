@@ -90,6 +90,24 @@ using @racket[it].
  at most once (evaluation stops at the first successful 
  @racket[conditionᵢ]).}
 
+@defform[(aand conditionᵢ ... body)]{
+ Variant of @racket[and] which binds @racket[it]
+ to the value of each @racket[conditionᵢ], in scope within the
+ next @racket[conditionᵢ] or @racket[body]. More precisely, the value
+ of each @racket[conditionᵢ] can be referred to as @racket[it] in
+ the following @racketvarfont{conditionᵢ₊₁}, and the value of the last
+ @racket[conditionᵢ] can be referred to as @racket[it] in the
+ @racket[body]. If there are no @racket[conditionᵢ], i.e. when
+ writing, @racket[(aand body)], then @racket[it] retains its original
+ binding (which means that @racket[it] could be unbound, e.g. if no
+ other @racketmodname[anaphoric] form wraps this one).
+
+ Each @racket[condition] is evaluated at most once, and
+ evaluation stops at the first false condition. The
+ @racket[body] is only evaluated when every
+ @racket[conditionᵢ] is successful.
+}
+
 @section{The hygienic versions @racket[if-let], 
  @racket[when-let] and @racket[cond-let]}
 
@@ -124,14 +142,14 @@ using @racket[it].
  (evaluation stops at the first successful 
  @racket[conditionᵢ]).}
 
-@defform[(and-let [identifier condition] ... body)]{
+@defform[(and-let [identifier conditionᵢ] ... body)]{
  Variant of @racket[and] which binds each @racket[identifier]
- to the value of its @racket[condition], in scope within all
- @racket[condition]s afterwards as well as in @racket[body].
+ to the value of its @racket[conditionᵢ], in scope within every
+ @racket[conditionᵢ] afterwards as well as in @racket[body].
 
- Each @racket[condition] is evaluated at most once, and
+ Each @racket[conditionᵢ] is evaluated at most once, and
  evaluation stops at the first false condition. The
- @racket[body] is only evaluated when all
- @racket[conditions] are successful.
+ @racket[body] is only evaluated when every
+ @racket[conditionᵢ] is successful.
 }
 

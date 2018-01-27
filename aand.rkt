@@ -1,15 +1,14 @@
 #lang racket/base
 
-(provide and-let)
-
-(require syntax/parse/define
-         anaphoric/if-let
+(provide aand it)
+(require anaphoric/it
+         anaphoric/aif
+         syntax/parse/define
          (for-syntax racket/base))
 
-(define-syntax and-let
+(define-syntax aand
   (syntax-parser
     [(_) #'#true]
     [(_ body:expr) #'body]
     [(_ [variable:id condition:expr] rest ...+)
-     #'(if-let [variable condition] (and-let rest ...) #false)]))
-
+     #'(aif condition (and-let rest ...) #false)]))

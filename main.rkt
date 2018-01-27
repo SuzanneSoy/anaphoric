@@ -14,14 +14,18 @@
                        anaphoric/aif
                        anaphoric/awhen
                        anaphoric/acond
+                       anaphoric/aand
                        anaphoric/if-let
                        anaphoric/when-let
-                       anaphoric/cond-let))
+                       anaphoric/cond-let
+                       anaphoric/and-let))
 
 (require anaphoric/it
          anaphoric/aif
          anaphoric/awhen
          anaphoric/acond
+         anaphoric/aand
          anaphoric/if-let
          anaphoric/when-let
-         anaphoric/cond-let)
+         anaphoric/cond-let
+         anaphoric/and-let)

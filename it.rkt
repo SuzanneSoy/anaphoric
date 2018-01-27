@@ -1,7 +1,8 @@
-#lang racket
+#lang racket/base
 
 (provide it)
-(require racket/stxparam)
+(require racket/stxparam
+         (for-syntax racket/base))
 
 (define-syntax-parameter it
   (λ (stx)

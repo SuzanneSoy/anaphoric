@@ -1,6 +1,8 @@
-#lang racket
+#lang racket/base
 
 (provide cond-let)
+
+(require (for-syntax racket/base))
 
 (define-syntax (cond-let stx)
   (syntax-case stx (else)

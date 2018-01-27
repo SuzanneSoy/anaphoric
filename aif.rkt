@@ -1,8 +1,9 @@
-#lang racket
+#lang racket/base
 
 (provide aif it)
 (require anaphoric/it
-         racket/stxparam)
+         racket/stxparam
+         (for-syntax racket/base))
 
 (define-syntax-rule (aif condition true-branch false-branch)
   (let ([tmp condition])

@@ -1,8 +1,9 @@
-#lang racket
+#lang racket/base
 
 (provide acond it)
 (require anaphoric/it
-         racket/stxparam)
+         racket/stxparam
+         (for-syntax racket/base))
 
 (define-syntax (acond stx)
   (syntax-case stx (else)

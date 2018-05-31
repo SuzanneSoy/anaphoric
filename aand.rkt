@@ -3,8 +3,8 @@
 (provide aand it)
 (require anaphoric/it
          anaphoric/aif
-         syntax/parse/define
-         (for-syntax racket/base))
+         (for-syntax racket/base
+                     syntax/parse))
 
 (define-syntax aand
   (syntax-parser

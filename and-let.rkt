@@ -2,9 +2,9 @@
 
 (provide and-let)
 
-(require syntax/parse/define
-         anaphoric/if-let
-         (for-syntax racket/base))
+(require anaphoric/if-let
+         (for-syntax racket/base
+                     syntax/parse))
 
 (define-syntax and-let
   (syntax-parser

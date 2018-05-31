@@ -29,7 +29,7 @@ install:
 - raco pkg install --deps search-auto -j 2
 
 script:
-- raco test -x -p "$(basename "$TRAVIS_BUILD_DIR")"
+- raco test -r -p "$(basename "$TRAVIS_BUILD_DIR")"
 - if $COV; then raco setup --check-pkg-deps --no-zo --no-launcher --no-install --no-post-install --no-docs --pkgs "$(basename "$TRAVIS_BUILD_DIR")"; fi
 - if $COV; then raco doc-coverage "$(basename "$TRAVIS_BUILD_DIR")"; fi
 - if $COV; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi

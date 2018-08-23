@@ -10,5 +10,5 @@
   (syntax-parser
     [(_) #'#true]
     [(_ body:expr) #'body]
-    [(_ [variable:id condition:expr] rest ...+)
-     #'(aif condition (and-let rest ...) #false)]))
+    [(_ condition:expr rest ...+)
+     #'(aif condition (aand rest ...) #false)]))

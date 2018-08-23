@@ -90,7 +90,8 @@ using @racket[it].
  at most once (evaluation stops at the first successful 
  @racket[conditionᵢ]).}
 
-@defform[(aand conditionᵢ ... body)]{
+@defform*[[(aand)
+           (aand conditionᵢ ... body)]]{
  Variant of @racket[and] which binds @racket[it]
  to the value of each @racket[conditionᵢ], in scope within the
  next @racket[conditionᵢ] or @racket[body]. More precisely, the value
@@ -142,7 +143,8 @@ using @racket[it].
  (evaluation stops at the first successful 
  @racket[conditionᵢ]).}
 
-@defform[(and-let [identifier conditionᵢ] ... body)]{
+@defform*[[(and-let)
+           (and-let [identifier conditionᵢ] ... body)]]{
  Variant of @racket[and] which binds each @racket[identifier]
  to the value of its @racket[conditionᵢ], in scope within every
  @racket[conditionᵢ] afterwards as well as in @racket[body].

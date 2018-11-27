@@ -11,7 +11,7 @@
 
 This package provides anaphoric versions of @racket[if], 
 @racket[when] and @racket[cond]. These bind the syntax
-parameter @racket[if] to the value produced by the
+parameter @racket[it] to the value produced by the
 condition expression. 
 
 @racketblock[(aif (member 'a lst)

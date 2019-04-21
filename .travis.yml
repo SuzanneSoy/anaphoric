@@ -18,7 +18,14 @@ env:
     - RACKET_VERSION=6.6     COV=true
     - RACKET_VERSION=6.7     COV=true
     - RACKET_VERSION=6.8     COV=true
-    - RACKET_VERSION=RELEASE COV=true
+    - RACKET_VERSION=6.9     COV=true
+    - RACKET_VERSION=6.10    COV=true
+    - RACKET_VERSION=6.10.1  COV=true
+    - RACKET_VERSION=6.11    COV=true
+    - RACKET_VERSION=6.12    COV=true
+    - RACKET_VERSION=7.0     COV=true
+    - RACKET_VERSION=7.1     COV=true
+    - RACKET_VERSION=7.2     COV=true
     - RACKET_VERSION=HEAD    COV=true
 
 before_install:

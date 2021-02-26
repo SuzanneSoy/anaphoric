@@ -8,25 +8,34 @@ env:
     - PATH="$RACKET_DIR/bin:$PATH"
   matrix:
     # RACKET_VERSION is an argument to install-racket.sh
-    - RACKET_VERSION=6.0     COV=false
-    - RACKET_VERSION=6.1     COV=false
-    - RACKET_VERSION=6.1.1   COV=false
-    - RACKET_VERSION=6.2     COV=false
-    - RACKET_VERSION=6.3     COV=false
-    - RACKET_VERSION=6.4     COV=false
-    - RACKET_VERSION=6.5     COV=false
-    - RACKET_VERSION=6.6     COV=false
-    - RACKET_VERSION=6.7     COV=false
-    - RACKET_VERSION=6.8     COV=false
-    - RACKET_VERSION=6.9     COV=true
-    - RACKET_VERSION=6.10    COV=true
-    - RACKET_VERSION=6.10.1  COV=true
-    - RACKET_VERSION=6.11    COV=true
-    - RACKET_VERSION=6.12    COV=true
-    - RACKET_VERSION=7.0     COV=true
-    - RACKET_VERSION=7.1     COV=true
-    - RACKET_VERSION=7.2     COV=true
-    - RACKET_VERSION=HEAD    COV=true
+    - RACKET_VERSION=6.0                COV=false
+    - RACKET_VERSION=6.1                COV=false
+    - RACKET_VERSION=6.1.1              COV=false
+    - RACKET_VERSION=6.2                COV=false
+    - RACKET_VERSION=6.3                COV=false
+    - RACKET_VERSION=6.4                COV=false
+    - RACKET_VERSION=6.5                COV=false
+    - RACKET_VERSION=6.6                COV=false
+    - RACKET_VERSION=6.7                COV=false
+    - RACKET_VERSION=6.8                COV=false
+    - RACKET_VERSION=6.9                COV=true
+    - RACKET_VERSION=6.10               COV=true
+    - RACKET_VERSION=6.10.1             COV=true
+    - RACKET_VERSION=6.11               COV=true
+    - RACKET_VERSION=6.12               COV=true
+    - RACKET_VERSION=7.0                COV=true
+    - RACKET_VERSION=7.1                COV=true
+    - RACKET_VERSION=7.2                COV=true
+    - RACKET_VERSION=7.3                COV=true
+    - RACKET_VERSION=7.4                COV=true
+    - RACKET_VERSION=7.5                COV=true
+    - RACKET_VERSION=7.6                COV=true
+    - RACKET_VERSION=7.7                COV=true
+    - RACKET_VERSION=7.8                COV=true
+    - RACKET_VERSION=7.9                COV=true
+    - RACKET_VERSION=8.0                COV=true
+    - RACKET_VERSION=8.0    RACKET_CS=1 COV=true
+    - RACKET_VERSION=HEAD               COV=true
 
 before_install:
 - curl -L https://raw.githubusercontent.com/greghendershott/travis-racket/master/install-racket.sh | bash

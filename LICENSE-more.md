@@ -1,5 +1,5 @@
 anaphoric
-Copyright (c) 2016-2017 Georges Dupéron
+Copyright (c) 2016-2017 Suzanne Soy
 
 
 

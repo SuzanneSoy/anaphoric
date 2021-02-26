@@ -13,11 +13,11 @@ env:
     - RACKET_VERSION=6.1.1   COV=false
     - RACKET_VERSION=6.2     COV=false
     - RACKET_VERSION=6.3     COV=false
-    - RACKET_VERSION=6.4     COV=true
-    - RACKET_VERSION=6.5     COV=true
-    - RACKET_VERSION=6.6     COV=true
-    - RACKET_VERSION=6.7     COV=true
-    - RACKET_VERSION=6.8     COV=true
+    - RACKET_VERSION=6.4     COV=false
+    - RACKET_VERSION=6.5     COV=false
+    - RACKET_VERSION=6.6     COV=false
+    - RACKET_VERSION=6.7     COV=false
+    - RACKET_VERSION=6.8     COV=false
     - RACKET_VERSION=6.9     COV=true
     - RACKET_VERSION=6.10    COV=true
     - RACKET_VERSION=6.10.1  COV=true

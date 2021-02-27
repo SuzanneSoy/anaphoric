@@ -29,6 +29,29 @@
                [else 'seen-03])
               'seen-03)
 
+;; Common variable name, with else branch
+(check-equal? (cond-let x
+               [(member 'a lst) (set! seen (add1 seen))
+                                (check-equal? x '(a b c))
+                                'seen-01]
+               [(member 'b lst) (fail "cond-let chose wrong branch")]
+               [else (fail "cond-let chose wrong branch")])
+              'seen-01)
+(check-equal? seen 2) ;; multiple body statements
+
+(check-equal? (cond-let x
+               [(member 'absent lst) (fail "cond-let chose wrong branch")]
+               [(member 'b lst) (begin (check-equal? x '(b c))
+                                       'seen-02)]
+               [else (fail "cond-let chose wrong branch")])
+              'seen-02)
+
+(check-equal? (cond-let x
+               [(member 'absent lst) (fail "cond-let chose wrong branch")]
+               [(member 'absent2 lst) (fail "cond-let chose wrong branch")]
+               [else 'seen-03])
+              'seen-03)
+
 ;; Different variable names
 (check-equal? (cond-let
                [[x (member 'a lst)] (begin (check-equal? x '(a b c))
@@ -73,6 +96,11 @@
                [else 'seen-04])
               'seen-04)
 
+;; Common variable name, just else branch
+(check-equal? (cond-let x
+               [else 'seen-04])
+              'seen-04)
+
 ;; Multiple body statements
 
 (check-equal? (cond-let
@@ -81,7 +109,7 @@
                [else (set! seen (add1 seen))
                      'seen-05])
               'seen-05)
-(check-equal? seen 2)
+(check-equal? seen 3)
 
 ;; Without else branch
 (check-equal? (cond-let
@@ -90,7 +118,7 @@
                                     'seen-06]
                [[x (member 'b lst)] (fail "cond-let chose wrong branch")])
               'seen-06)
-(check-equal? seen 3)
+(check-equal? seen 4)
 
 (check-equal? (cond-let
                [[x (member 'absent lst)] (fail "cond-let chose wrong branch")]
@@ -101,6 +129,26 @@
 (check-equal? (cond-let
                [[x (member 'absent lst)] (fail "cond-let chose wrong branch")]
                [[x (member 'absent2 lst)] (fail "cond-let chose wrong branch")])
+              (void))
+
+;; Common variable name, without else branch
+(check-equal? (cond-let x
+               [(member 'a lst) (set! seen (add1 seen))
+                                (check-equal? x '(a b c))
+                                'seen-06]
+               [(member 'b lst) (fail "cond-let chose wrong branch")])
+              'seen-06)
+(check-equal? seen 5)
+
+(check-equal? (cond-let x
+               [(member 'absent lst) (fail "cond-let chose wrong branch")]
+               [(member 'b lst) (begin (check-equal? x '(b c))
+                                       'seen-07)])
+              'seen-07)
+
+(check-equal? (cond-let x
+               [(member 'absent lst) (fail "cond-let chose wrong branch")]
+               [(member 'absent2 lst) (fail "cond-let chose wrong branch")])
               (void))
 
 ;; No branch

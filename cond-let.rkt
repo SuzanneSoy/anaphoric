@@ -15,5 +15,5 @@
     [(cond-let identifier [conditionᵢ . bodyᵢ] ... [else . else-body])
      #'(cond [conditionᵢ => (λ (identifier) . bodyᵢ)] ...
              [else . else-body])]
-    [(cond-let [[identifierᵢ conditionᵢ] . bodyᵢ] ...)
-     #'(cond [conditionᵢ => (λ (identifierᵢ) . bodyᵢ)] ...)]))
+    [(cond-let identifier [conditionᵢ . bodyᵢ] ...)
+     #'(cond [conditionᵢ => (λ (identifier) . bodyᵢ)] ...)]))

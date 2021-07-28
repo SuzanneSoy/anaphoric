@@ -92,6 +92,7 @@ jobs:
       # TODO: add an option to cover to run the "outer" module too, not just the submodules.
       # TODO: deploy the coverage info.
   status-check:
+    runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Create status check

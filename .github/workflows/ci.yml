@@ -58,7 +58,7 @@ jobs:
       RACKET_VERSION: "${{ matrix.racket }}"
       RACKET_CS: "${{ matrix.racket_cs }}"
       COV: "${{ matrix.cov }}"
-      CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+      CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN_SECRET }}"
     steps:
       - uses: actions/checkout@v2
       - name: Add to $PATH
@@ -75,7 +75,6 @@ jobs:
           echo RACKET_CS="$RACKET_CS"
           echo COV="$COV"
           echo GITHUB_WORSPACE="$GITHUB_WORKSPACE"
-          echo INPUT_CODECOV_TOKEN="$INPUT_CODECOV_TOKEN"
           echo CODECOV_TOKEN="$CODECOV_TOKEN"
           printenv || env || set || true
       - name: Install Racket

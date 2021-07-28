@@ -57,7 +57,8 @@ jobs:
       RACKET_VERSION: "${{ matrix.racket }}"
       RACKET_CS: "${{ matrix.racket_cs }}"
       COV: "${{ matrix.cov }}"
-      CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+      #CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+      CODECOV_TOKEN: 88755518-12cc-4dee-a0f2-bdc978bc1d83
     steps:
       - uses: actions/checkout@v2
       - name: Add to $PATH
@@ -89,6 +90,6 @@ jobs:
       - name: Check documentation coverage
         run: if $COV; then raco doc-coverage "$(basename "$GITHUB_WORKSPACE")"; fi
       - name: Check code coverage
-        run: if $COV; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi
+        run: echo $CODECOV_TOKEN; if $COV; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi
       # TODO: add an option to cover to run the "outer" module too, not just the submodules.
       # TODO: deploy the coverage info.

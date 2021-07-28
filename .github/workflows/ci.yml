@@ -92,20 +92,3 @@ jobs:
         run: if $COV; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi
       # TODO: add an option to cover to run the "outer" module too, not just the submodules.
       # TODO: deploy the coverage info.
-  status-check:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Create status check
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -x
-          BUILD_COMMIT=$(git rev-parse HEAD)
-          curl \
-          -X POST \
-          -H "Authorization: Bearer $GITHUB_TOKEN" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/${{ github.repository }}/check-runs \
-          -d '{"name":"build", "head_sha": "'"$BUILD_COMMIT"'", "status": "completed", "conclusion": "success" }'

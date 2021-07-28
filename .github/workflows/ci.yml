@@ -81,7 +81,7 @@ jobs:
           export RACKET_DIR="$HOME/.racket"
           curl -L https://raw.githubusercontent.com/greghendershott/travis-racket/master/install-racket.sh | bash
       - name: Install cover
-        run: if $COV; then raco pkg install --deps search-auto doc-coverage cover cover-codecov; fi # or cover-coveralls
+        run: if $COV; then raco pkg install --deps search-auto doc-coverage cover https://github.com/jsmaniac/codecov-racket.git#github-ci; fi # or cover-coveralls
       - name: Install the Racket package
         run: raco pkg install --deps search-auto -j 2
       - name: Test the Racket package

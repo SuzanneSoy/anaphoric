@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 on:
@@ -85,9 +83,9 @@ jobs:
       - name: Test the Racket package
         run: raco test -r -p "$(basename "$GITHUB_WORKSPACE")"
       - name: Check the dependencies of the Racket package
-        run: if $COV; then raco setup --check-pkg-deps --no-zo --no-launcher --no-install --no-post-install --no-docs --pkgs "$(basename "$TRAVIS_BUILD_DIR")"; fi
+        run: if $COV; then raco setup --check-pkg-deps --no-zo --no-launcher --no-install --no-post-install --no-docs --pkgs "$(basename "$GITHUB_WORKSPACE")"; fi
       - name: Check documentation coverage
-        run: if $COV; then raco doc-coverage "$(basename "$TRAVIS_BUILD_DIR")"; fi
+        run: if $COV; then raco doc-coverage "$(basename "$GITHUB_WORKSPACE")"; fi
       - name: Check code coverage
         run: if $COV; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi
       # TODO: add an option to cover to run the "outer" module too, not just the submodules.

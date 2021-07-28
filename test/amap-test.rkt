@@ -13,7 +13,15 @@
  (amap (number->string (+ it it)) '(1 2))
  "Multiple 'it' in a nested expression.")
 
+(define (f lst)
+  (amap (/ it 0) lst))
+
 (check-equal?
  '()
- (amap (/ it 0) '())
+ (f '())
  "Empty list.")
+
+(check-exn
+   exn:fail?
+   (f '(1))
+   "To get 100% code coverage for the f function.")

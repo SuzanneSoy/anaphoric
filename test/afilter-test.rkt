@@ -15,7 +15,15 @@
  (afilter ((* it it) . > . 50) lst)
  "Multiple 'it' in a nested expression.")
 
+(define (f lst)
+  (afilter (= it 42) lst))
+
 (check-equal?
  '()
- (afilter (= it 42) '())
+ (f '())
  "Empty list.")
+
+(check-exn
+   exn:fail?
+   (f '(1))
+   "To get 100% code coverage for the f function.")

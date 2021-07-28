@@ -75,16 +75,7 @@ jobs:
           echo RACKET_CS="$RACKET_CS"
           echo COV="$COV"
           echo GITHUB_WORSPACE="$GITHUB_WORKSPACE"
-          echo CODECOV_TOKEN="$CODECOV_TOKEN"
-          echo secret="${{ secrets.CODECOV_TOKEN_SECRET }}"
-          echo FOO="$FOO"
-          echo OTHER="$OTHER"
-          echo "$FOO" | wc -c
-          echo "$OTHER" | wc -c
-          echo "$CODECOV_TOKEN" | wc -c
-        env:
-          FOO: ${{ secrets.CODECOV_TOKEN_SECRET }}
-          OTHER: ${{ secrets.OTHER_SECRET }}
+          echo -n "$CODECOV_TOKEN" | wc -c
       - name: Install Racket
         run: |
           export RACKET_DIR="$HOME/.racket"

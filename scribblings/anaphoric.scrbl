@@ -157,7 +157,7 @@ using @racket[it].
 
 @section{Anaphoric map and filter}
 
-@defform[[(amap body lst)]]{
+@defform[(amap body lst)]{
  Anaphoric @racket[map]. Binds the syntax parameter @racket[it]
  in the @racketid[body], and maps it over the list @racketid[lst]. Effectively the same
  as wrapping the @racketid[body] in a @racket[lambda] with an @racket[it] parameter. Unlike @racket[map], @racket[amap]
@@ -173,7 +173,7 @@ using @racket[it].
   @racketblock[(amap (* it it) '(1 2 3))]
 }
 
-@defform[[(afilter body lst)]]{
+@defform[(afilter body lst)]{
  Anaphoric @racket[filter]. Binds the syntax parameter @racket[it]
  in the @racketid[body], and filters the list @racketid[lst] using it. Effectively the same
  as wrapping the body in a @racket[lambda] with an @racket[it] parameter.

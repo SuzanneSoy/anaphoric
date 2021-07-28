@@ -16,7 +16,7 @@
  "Multiple 'it' in a nested expression.")
 
 (define (f lst)
-  (afilter (= it 42) lst))
+  (afilter (/ it 0) lst))
 
 (check-equal?
  '()

@@ -95,6 +95,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v2
       - name: Create status check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

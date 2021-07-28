@@ -2,7 +2,7 @@
 @require[@for-label[anaphoric
                     racket/base]]
 
-@title{Anaphoric conditionals}
+@title{Anaphoric macros}
 @author[@author+email["Suzanne Soy" "racket@suzanne.soy"]]
 
 @defmodule[anaphoric]
@@ -10,7 +10,7 @@
 @section{Overview}
 
 This package provides anaphoric versions of @racket[if], 
-@racket[when] and @racket[cond]. These bind the syntax
+@racket[when], @racket[cond], @racket[map], and @racket[filter]. These bind the syntax
 parameter @racket[it] to the value produced by the
 condition expression. 
 
@@ -155,3 +155,30 @@ using @racket[it].
  @racket[conditionᵢ] is successful.
 }
 
+@section{Anaphoric map and filter}
+
+@defform[[(amap body lst)]]{
+ Anaphoric @racket[map]. Binds the syntax parameter @racket[it]
+ in the @racketid[body], and maps it over the list @racketid[lst]. Effectively the same
+ as wrapping the @racketid[body] in a @racket[lambda] with an @racket[it] parameter. Unlike @racket[map], @racket[amap]
+ only works on a single list.
+
+ @racket[amap] works with nested function calls:
+
+  @racketblock[(amap (string-append (string-upcase it) "!")
+                     '("apple" "banana"))]
+
+ The syntax parameter @racket[it] may be used multiple times in the procedure:
+
+  @racketblock[(amap (* it it) '(1 2 3))]
+}
+
+@defform[[(afilter body lst)]]{
+ Anaphoric @racket[filter]. Binds the syntax parameter @racket[it]
+ in the @racketid[body], and filters the list @racketid[lst] using it. Effectively the same
+ as wrapping the body in a @racket[lambda] with an @racket[it] parameter.
+
+ @racket[afilter] works with nested function calls:
+
+  @racketblock[(afilter ((* it it) . > . 50) lst)]
+}

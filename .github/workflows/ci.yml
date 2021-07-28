@@ -52,6 +52,7 @@ jobs:
             cov: false
           - racket: '8.0'
             racket_cs: 1
+            cov: true
     env:
       # RACKET_DIR is an argument to install-racket.sh
       RACKET_VERSION: "${{ matrix.racket }}"

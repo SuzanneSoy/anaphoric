@@ -57,6 +57,7 @@ jobs:
       RACKET_VERSION: "${{ matrix.racket }}"
       RACKET_CS: "${{ matrix.racket_cs }}"
       COV: "${{ matrix.cov }}"
+      CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
     steps:
       - uses: actions/checkout@v2
       - name: Add to $PATH
@@ -106,5 +107,5 @@ jobs:
           -X POST \
           -H "Authorization: Bearer $GITHUB_TOKEN" \
           -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/${{github.repository}}/check-runs \
+          https://api.github.com/repos/${{ github.repository }}/check-runs \
           -d '{"name":"build", "head_sha": "'"$BUILD_COMMIT"'", "status": "completed", "conclusion": "success" }'

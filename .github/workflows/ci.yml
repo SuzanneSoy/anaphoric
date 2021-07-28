@@ -78,10 +78,13 @@ jobs:
           echo CODECOV_TOKEN="$CODECOV_TOKEN"
           echo secret="${{ secrets.CODECOV_TOKEN_SECRET }}"
           echo FOO="$FOO"
+          echo OTHER="$OTHER"
           echo "$FOO" | wc -c
+          echo "$OTHER" | wc -c
           echo "$CODECOV_TOKEN" | wc -c
         env:
           FOO: ${{ secrets.CODECOV_TOKEN_SECRET }}
+          OTHER: ${{ secrets.OTHER_SECRET }}
       - name: Install Racket
         run: |
           export RACKET_DIR="$HOME/.racket"

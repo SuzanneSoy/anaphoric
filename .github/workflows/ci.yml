@@ -58,7 +58,7 @@ jobs:
       RACKET_VERSION: "${{ matrix.racket }}"
       RACKET_CS: "${{ matrix.racket_cs }}"
       COV: "${{ matrix.cov }}"
-      CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN_SECRET }}"
+      CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
     steps:
       - uses: actions/checkout@v2
       - name: Add to $PATH

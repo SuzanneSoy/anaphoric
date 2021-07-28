@@ -76,6 +76,7 @@ jobs:
           echo COV="$COV"
           echo GITHUB_WORSPACE="$GITHUB_WORKSPACE"
           echo CODECOV_TOKEN="$CODECOV_TOKEN"
+          echo secret="${{ secrets.CODECOV_TOKEN_SECRET }}"
           printenv || env || set || true
       - name: Install Racket
         run: |

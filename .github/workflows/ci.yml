@@ -92,5 +92,7 @@ jobs:
         run: if $COV; then raco doc-coverage "$(basename "$GITHUB_WORKSPACE")"; fi
       - name: Check code coverage
         run: echo $CODECOV_TOKEN; if $COV; then raco cover -s main -s test -s doc -f codecov -f html -d ~/coverage . || true; fi
+      - name: debug code coverage
+        run: find /home/runner/coverage
       # TODO: add an option to cover to run the "outer" module too, not just the submodules.
       # TODO: deploy the coverage info.

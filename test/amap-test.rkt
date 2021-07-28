@@ -23,5 +23,5 @@
 
 (check-exn
    exn:fail?
-   (f '(1))
+   (lambda () (f '(1)))
    "To get 100% code coverage for the f function.")

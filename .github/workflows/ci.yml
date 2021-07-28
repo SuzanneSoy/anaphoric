@@ -59,7 +59,6 @@ jobs:
       RACKET_CS: "${{ matrix.racket_cs }}"
       COV: "${{ matrix.cov }}"
       #CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
-      CODECOV_TOKEN: 88755518-12cc-4dee-a0f2-bdc978bc1d83
     steps:
       - uses: actions/checkout@v2
       - name: Add to $PATH

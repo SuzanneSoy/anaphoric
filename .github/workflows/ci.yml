@@ -19,27 +19,28 @@ jobs:
         cov: [true]
         racket_cs: [0]
         include:
-          - racket: '6.0'
-            racket_cs: 0
-            cov: false
-          - racket: '6.1'
-            racket_cs: 0
-            cov: false
-          - racket: '6.1.1'
-            racket_cs: 0
-            cov: false
-          - racket: '6.2'
-            racket_cs: 0
-            cov: false
-          - racket: '6.3'
-            racket_cs: 0
-            cov: false
-          - racket: '6.4'
-            racket_cs: 0
-            cov: false
-          - racket: '6.5'
-            racket_cs: 0
-            cov: false
+          # The package fails to install on versions < 6.6 due to some SSL error, that seems due to some incompatibility between system (SSL) updates and raco, and is unrelated to this package.
+          #- racket: '6.0'
+          #  racket_cs: 0
+          #  cov: false
+          #- racket: '6.1'
+          #  racket_cs: 0
+          #  cov: false
+          #- racket: '6.1.1'
+          #  racket_cs: 0
+          #  cov: false
+          #- racket: '6.2'
+          #  racket_cs: 0
+          #  cov: false
+          #- racket: '6.3'
+          #  racket_cs: 0
+          #  cov: false
+          #- racket: '6.4'
+          #  racket_cs: 0
+          #  cov: false
+          #- racket: '6.5'
+          #  racket_cs: 0
+          #  cov: false
           - racket: '6.6'
             racket_cs: 0
             cov: false
